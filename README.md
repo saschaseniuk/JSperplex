@@ -1,48 +1,100 @@
 # JSperplex
 
-JSperplex is an innovative, open-source JavaScript library for advanced semantic search and AI-powered answer generation. This project aims to provide powerful search capabilities that can be easily integrated into web applications.
+JSperplex is an innovative npm package for advanced semantic search and AI-powered answer generation. It provides powerful search capabilities that can be easily integrated into Node.js applications.
 
 ## Features
 
 - Semantic searching using cutting-edge NLP techniques
 - Intelligent result reranking for improved relevance
-- AI-powered answer generation
-- Seamless integration with web applications
+- AI-powered answer generation using Groq API
+- Seamless integration with Node.js applications
 
 ## Installation
 
-You can install JSperplex via npm:
+Install JSperplex via npm:
 
 ```bash
 npm install jsperplex
 ```
 
-Alternatively, you can clone the GitHub repository to include it in your project or contribute to its development:
-
-```bash
-git clone https://github.com/yourusername/jsperplex.git
-```
-
 ## Usage
 
-To use JSperplex, you'll need to obtain API keys for the various services it utilizes. Here's how to set it up:
+Here's a basic example of how to use JSperplex:
 
 ```javascript
-const JSperplex = require('jsperplex');
+import JSperplex from "jsperplex";
+import dotenv from "dotenv";
 
+// Load environment variables
+dotenv.config();
+
+// Initialize JSperplex with your API keys
 const searcher = new JSperplex({
-  cohereApiKey: 'your-cohere-api-key',
-  jinaApiKey: 'your-jina-api-key',
-  serperApiKey: 'your-serper-api-key',
-  groqApiKey: 'your-groq-api-key'
+  cohereApiKey: process.env.COHERE_API_KEY,
+  jinaApiKey: process.env.JINA_API_KEY,
+  serperApiKey: process.env.SERPER_API_KEY,
+  groqApiKey: process.env.GROQ_API_KEY,
 });
 
-searcher.search('Your query here')
-  .then(results => console.log(results))
-  .catch(error => console.error(error));
+// Configuration options for the search
+const searchOptions = {
+  proMode: true,
+  location: "us",
+};
+
+// Perform a search
+async function performSearch() {
+  try {
+    const result = await searcher.search(
+      "What are the benefits of regular exercise?",
+      searchOptions
+    );
+    console.log("Answer:", result.answer);
+    console.log("Relevant Questions:", result.relevantQuestions);
+    console.log("Number of sources:", result.sourcesResult.organic.length);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+performSearch();
 ```
 
-Make sure to replace 'your-*-api-key' with your actual API keys. You can obtain these keys from:
+## API Reference
+
+### `new JSperplex(config)`
+
+Creates a new JSperplex instance.
+
+- `config`: An object containing API keys for various services.
+
+### `search(query, options)`
+
+Performs a semantic search and generates an AI-powered answer.
+
+- `query`: The search query string.
+- `options`: An object with the following properties:
+  - `proMode`: Boolean indicating whether to use advanced features (default: false).
+  - `location`: String representing the search location (default: 'us').
+
+Returns a Promise that resolves to an object containing:
+
+- `answer`: The generated answer string.
+- `relevantQuestions`: An array of relevant follow-up questions.
+- `sourcesResult`: An object containing the search results and sources.
+
+## Environment Setup
+
+Create a `.env` file in the root of your project and add your API keys:
+
+```
+COHERE_API_KEY=your_cohere_api_key
+JINA_API_KEY=your_jina_api_key
+SERPER_API_KEY=your_serper_api_key
+GROQ_API_KEY=your_groq_api_key
+```
+
+You can obtain these keys from:
 
 - Cohere: [https://cohere.ai/](https://cohere.ai/)
 - Jina AI: [https://jina.ai/](https://jina.ai/)
@@ -57,13 +109,9 @@ We welcome contributions to JSperplex! Please read our [Contributing Guide](CONT
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgements
+## Support
 
-- All contributors who participate in this project
-
-## Contact
-
-For any questions or feedback, please open an issue on this repository.
+For any questions or feedback, please open an issue on the [GitHub repository](https://github.com/saschaseniuk/jsperplex/issues).
 
 ---
 

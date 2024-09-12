@@ -1,0 +1,11 @@
+*.log
+combined.log
+error.log
+
+.env
+
+node_modules/
+
+.DS_Store
+.idea/
+.vscode/

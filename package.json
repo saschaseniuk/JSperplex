@@ -1,0 +1,47 @@
+{
+  "name": "jsperplex",
+  "version": "1.0.0",
+  "description": "An innovative JavaScript library for advanced semantic search and AI-powered answer generation",
+  "main": "index.js",
+  "type": "module",
+  "files": [
+    "index.js",
+    "services/**/*.js",
+    "utils/**/*.js",
+    "config/**/*.js"
+  ],
+  "scripts": {
+    "start": "node example.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "semantic search",
+    "AI",
+    "NLP",
+    "answer generation"
+  ],
+  "author": "Sascha Seniuk",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "winston": "^3.14.2",
+    "groq-sdk": "^0.7.0",
+    "langchain": "^0.1.28",
+    "@langchain/core": "^0.1.48"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saschaseniuk/jsperplex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saschaseniuk/jsperplex/issues"
+  },
+  "homepage": "https://github.com/saschaseniuk/jsperplex#readme"
+}
