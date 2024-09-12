@@ -1,6 +1,6 @@
 {
   "name": "jsperplex",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An innovative JavaScript library for advanced semantic search and AI-powered answer generation",
   "main": "index.js",
   "type": "module",
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/saschaseniuk/jsperplex.git"
+    "url": "git+https://github.com/saschaseniuk/jsperplex.git"
   },
   "bugs": {
     "url": "https://github.com/saschaseniuk/jsperplex/issues"
