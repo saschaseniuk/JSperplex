@@ -1,6 +1,6 @@
 {
   "name": "jsperplex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An innovative JavaScript library for advanced semantic search and AI-powered answer generation",
   "main": "index.js",
   "type": "module",
