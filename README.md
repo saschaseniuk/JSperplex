@@ -11,7 +11,7 @@ JSperplex is an innovative npm package for advanced semantic search and AI-power
 
 ## Installation
 
-Install JSperplex via npm:
+How to install JSperplex via npm:
 
 ```bash
 npm install jsperplex
